@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Figuras geométricas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <main class="page-container">
+    <section class="intro">
+      <h1>Calculadora de perímetros</h1>
+      <p>Selecciona una figura geométrica e ingresa sus medidas para calcular su perímetro.</p>
+    </section>
+
+    <ion-item class="selector" lines="none">
+      <ion-label>Figura geométrica</ion-label>
+      <ion-select [(ngModel)]="figuraSeleccionada" interface="popover" placeholder="Escoge una figura" aria-label="Seleccionar figura geométrica">
+        <ion-select-option value="circulo">Círculo</ion-select-option>
+        <ion-select-option value="triangulo">Triángulo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <app-circulo *ngIf="figuraSeleccionada === 'circulo'"></app-circulo>
+    <app-triangulo *ngIf="figuraSeleccionada === 'triangulo'"></app-triangulo>
+
+    <p class="hint" *ngIf="!figuraSeleccionada">La información de la figura aparecerá aquí cuando hagas una selección.</p>
+    <footer>Trabajo académico · Programación Híbrida · Alvaro Muñoz</footer>
+  </main>
+</ion-content>
